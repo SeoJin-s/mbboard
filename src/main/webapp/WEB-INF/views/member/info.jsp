@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>비밀번호 변경</h1>
-	<form action="">
-		<div>
-			
-		</div>
-	</form>
+
 </body>
 </html>

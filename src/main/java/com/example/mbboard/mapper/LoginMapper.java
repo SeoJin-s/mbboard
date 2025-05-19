@@ -16,4 +16,5 @@ public interface LoginMapper {
 	int updateMember(Member member);
 
 	int updateMemberPwByAdmin(Member member);
+	int updateMemberPwAfterMail(Member member);
 }

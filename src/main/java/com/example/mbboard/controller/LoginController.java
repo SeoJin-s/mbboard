@@ -153,8 +153,23 @@ public class LoginController {
 		loginService.changeMemberPwByAdmin(member);
 		// 메일로 전송
 		// 비밀번호 변경페이지로 리다이덱트
-		return "findMemberPw";
+		return "rechangeMemberPw";
 		
+	}
+	
+	@PostMapping("/rechangeMemberPw")
+	public String rechangeMemberPw(
+	        @RequestParam("memberId") String memberId,
+	        @RequestParam("memberPw") String oldPw,
+	        @RequestParam("newMemberPw") String newPw
+	) {
+	    int row = loginService.updateNewPwAfterMail(memberId, oldPw, newPw);
+
+	    if (row == 1) {
+	        return "redirect:/login"; // 변경 성공 시 로그인 페이지로
+	    } else {
+	        return "rechangeMemberPw"; // 변경 실패 시 다시 비번 변경 폼으로
+	    }
 	}
 	
 }

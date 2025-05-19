@@ -14,5 +14,6 @@ public interface ILoginService {
 	public int updateMember(Member paramMember);
 	
 	void changeMemberPwByAdmin(Member member);
+	int updateNewPwAfterMail(String memberId, String oldPw, String newPw);
 	
 }
