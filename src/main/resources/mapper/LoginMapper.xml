@@ -62,10 +62,13 @@
 
 <!-- 비밀번호 재설정용 수정 -->
 <update id="updateMemberPwAfterMail" parameterType="com.example.mbboard.dto.Member">
-	UPDATE member
-	SET member_pw = #{memberPw},
-	    pwcktime = NULL
-	WHERE member_id = #{memberId}
+    UPDATE member
+    SET member_pw = #{memberPw},
+        pwcktime = NULL
+    WHERE member_id = #{memberId}
+      AND member_pw = #{oldPw}
+      AND pwcktime IS NOT NULL
+      AND TIMESTAMPDIFF(MINUTE, pwcktime, NOW()) &lt; 11
 </update>
 <update id="updateMemberPwByAdmin" parameterType="com.example.mbboard.dto.Member">
     UPDATE member

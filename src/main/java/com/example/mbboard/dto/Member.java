@@ -12,7 +12,9 @@ public class Member {
 	private String saveIdCk;
 	private String email;
 	private LocalDateTime pwcktime;
-		
+	private String oldPw;	
+	
+	
     public LocalDateTime getPwcktime() {
         return pwcktime;
     }

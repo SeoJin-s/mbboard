@@ -109,7 +109,7 @@ public class LoginService implements ILoginService{
 
 	    log.info("비밀번호 변경 조건 통과! 실제 업데이트 진행");
 
-	    return loginMapper.updateMemberPwAfterMail(member);
+	    return loginMapper.updateMemberPwAfterMail(memberId, newPw, oldPw);
 	}
 
 }
